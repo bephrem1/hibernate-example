@@ -1,0 +1,25 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:./data/contactmgr</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- Update database schema on application startup (HiBernate Mapping to Data Definition Langauge) -->
+        <!-- This will examine out annotated classes to persist then set them up appropriately -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Show queries prepared by hibernate -->
+        <property name="show_sql">true</property>
+
+        <!-- Name the annotated classes we want to persist -->
+        <mapping class="com.benyamephrem.contactmgr.model.Contact" />
+
+    </session-factory>
+</hibernate-configuration>
+
+<!-- ORM: Object Relational Mapping - allows us to code in native language and it translates to SQL requests -->
+<!-- JPA: Java Persistence API - Allows us to swap ORM implementation while minimizing impact on written code.
+                                 The JPA is an interface to the ORM allowing this barrier to change-->
